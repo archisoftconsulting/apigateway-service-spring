@@ -2,11 +2,16 @@ package com.archisoft.b2b;
 
 import java.security.KeyPair;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -39,7 +44,7 @@ public class ClientConfiguration{
 	               .withClient("b2b")
 	               .secret("b2bsecret")
 	               .authorizedGrantTypes("authorization_code", "refresh_token","password")
-	               .scopes("full","read","write");
+	               .scopes("b2b");
 	    }
 
 	    @Override
@@ -51,6 +56,22 @@ public class ClientConfiguration{
 	    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
 	        oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
 	    }
+	    
+	    @Configuration
+		@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+		protected static class UserConfiguration extends WebSecurityConfigurerAdapter {
+
+			@Autowired
+			public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+				// @formatter:off
+				auth.inMemoryAuthentication()
+					.withUser("reader").password("password").roles("READER")
+				.and()
+					.withUser("admin").password("password").roles("READER", "WRITER")
+				.and()
+					.withUser("writer").password("password").roles("WRITER");
+	}
+	}
 	}
 	
 }
