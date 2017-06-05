@@ -16,8 +16,8 @@ public class SecurityConfiguration {
 		@EnableZuulProxy
 		protected static class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-			@Autowired
-			private AuthenticationManager authenticationManager;
+			//@Autowired
+			//private AuthenticationManager authenticationManager;
 			
 			 @Override
 			 public void configure(final HttpSecurity http) throws Exception {
