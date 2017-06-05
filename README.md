@@ -27,8 +27,8 @@ Once the application is up, go to
 1. http://localhost:8080 to see the apigateway home page
 2. http://localhost:8081 to see the greeting service.
 3. http://localhost:8080/public to test the routing
-4. http://localhost:8080/protected to test the protected resource.
-5. http://localhost:8080/readonly to test the readonly resource, you can GET but cant do POST. Test this using postman
+4. http://localhost:8080/writeonly to test the writeonly resource, you can POST but cant do GET. Test with postman
+5. http://localhost:8080/readonly to test the readonly resource, you can GET but cant do POST. Test with postman
 
 
 ## References
