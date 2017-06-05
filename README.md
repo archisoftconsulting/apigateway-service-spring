@@ -24,11 +24,17 @@ mvn spring-boot:run
 
 Once the application is up, go to 
 
+
 1. http://localhost:8080 to see the apigateway home page
 2. http://localhost:8081 to see the greeting service.
 3. http://localhost:8080/public to test the routing
 4. http://localhost:8080/readonly. Protected resource, login with user=reader can access. user=writer cannot access.
 5. http://localhost:8080/writeonly to Protected resource, login with user=writer.
+
+## Server PORTs
+1. APIGATEWAY Server = 8080
+2. OAUTH Server = 9999
+3. Sample Resource/Rest API = 8081
 
 ## Login@pass,role
 
