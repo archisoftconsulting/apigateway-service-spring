@@ -31,7 +31,7 @@ Once the application is up, go to
 5. http://localhost:8080/readonly to test the readonly resource, you can GET but cant do POST. Test this using postman
 
 
-References:
+## References
 
 protected rest
 http://localhost:8080/protected
