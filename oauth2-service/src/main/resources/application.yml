@@ -5,3 +5,11 @@ spring:
 # Define the port where the API gateway server would be running
 server:
   port: 9999
+  context-path: /uaa
+  
+security:
+  # Disable Spring Boot basic authentication
+  basic:
+    enabled: true
+    
+    

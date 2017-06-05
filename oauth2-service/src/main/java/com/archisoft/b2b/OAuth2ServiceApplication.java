@@ -9,4 +9,7 @@ public class OAuth2ServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OAuth2ServiceApplication.class, args);
 	}
+	
+	
+	
 }
