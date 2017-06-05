@@ -30,20 +30,14 @@ Once the application is up, go to
 4. http://localhost:8080/readonly. Protected resource, login with user=reader can access. user=writer cannot access.
 5. http://localhost:8080/writeonly to Protected resource, login with user=writer.
 
-## Login id and password
+## Login@pass,role
 
 
-id: reader
-password: password
-role: reader
+reader@password,reader
 
-id: writer
-password: password
-role: writer
+writer@password,writer
 
-id: admin
-password: password
-role: reader, writer
+admin@password,reader,writer
 
 
 ## References
