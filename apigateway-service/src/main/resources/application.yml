@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: apigateway-service
+
+# Define the port where the API gateway server would be running
+server:
+  port: 8080
+
+zuul:
+  routes:
+    uaa-service:
+      sensitiveHeaders:
+      path: /uaa/**
+      stripPrefix: false
+    protected-service:
+      sensitiveHeaders:
+      path: /protected/**
+      url: http://localhost:8081
+    public-service:
+      sensitiveHeaders:
+      path: /public/**
+      url: http://localhost:8081
+  add-proxy-headers: true
+
+ratelimit:
+    enabled: true #default false
+    behind-proxy: true #default false
+    policies:
+      random-service:
+        limit: 5
+        refresh-interval: 120 #60 default value (in seconds)
+        type: #optional
+          - user
+          - origin
+          - url
