@@ -13,46 +13,47 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
 public class SecurityConfiguration {
-	
-		@Configuration
-		@EnableResourceServer
-		@EnableZuulProxy
-		protected static class PermissionConfiguration extends ResourceServerConfigurerAdapter {
 
-			//@Autowired
-			//private AuthenticationManager authenticationManager;
+	@Configuration
+	@EnableResourceServer
+	@EnableZuulProxy
+	protected static class PermissionConfiguration extends ResourceServerConfigurerAdapter {
+
+		// @Autowired
+		// private AuthenticationManager authenticationManager;
+
+		@Override
+		public void configure(final HttpSecurity http) throws Exception {
+			// @formatter:off
+			// http.authorizeRequests()
+			// .antMatchers(HttpMethod.GET,"/readonly/**").access("#oauth2.hasScope('b2b')
+			// and hasRole('READ')")
+			//
+			// .antMatchers(HttpMethod.POST,"/writeonly/**").access("#oauth2.hasScope('b2b')
+			// and hasRole('WRITE')")
+			// .anyRequest().permitAll();
 			
-			 @Override
-			 public void configure(final HttpSecurity http) throws Exception {
-			        // @formatter:off
-//			  http.authorizeRequests()
-//			  	.antMatchers(HttpMethod.GET,"/readonly/**").access("#oauth2.hasScope('b2b') and hasRole('READ')")
-//			  	
-//			  	.antMatchers(HttpMethod.POST,"/writeonly/**").access("#oauth2.hasScope('b2b') and hasRole('WRITE')")
-//			    .anyRequest().permitAll();
-			  
-			  http.authorizeRequests().antMatchers(HttpMethod.POST, "/readonly").hasRole("READER")
-			  .anyRequest().authenticated();
-			
-			  
-			  
-			 }
-			
+
+			http.authorizeRequests().antMatchers(HttpMethod.GET, "/protected").hasRole("READER")	
+			.antMatchers(HttpMethod.POST, "/protected").hasRole("WRITER")
+			.anyRequest()
+					.permitAll();
+
 		}
-		
-		@Configuration
-		@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-		protected static class UserConfiguration extends WebSecurityConfigurerAdapter {
 
-			@Autowired
-			public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-				// @formatter:off
-				auth.inMemoryAuthentication()
-					.withUser("reader").password("password").roles("READER")
-				.and()
-					.withUser("admin").password("password").roles("READER", "WRITER")
-				.and()
-					.withUser("writer").password("password").roles("WRITER");
 	}
-		//CSRF code TODO:
-}}
+
+//	@Configuration
+//	@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+//	protected static class UserConfiguration extends WebSecurityConfigurerAdapter {
+//
+//		@Autowired
+//		public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+//			// @formatter:off
+//			auth.inMemoryAuthentication().withUser("reader").password("password").roles("READER").and()
+//					.withUser("admin").password("password").roles("READER", "WRITER").and().withUser("writer")
+//					.password("password").roles("WRITER");
+//		}
+//		// CSRF code TODO:
+//	}
+}

@@ -12,17 +12,13 @@ zuul:
       sensitiveHeaders:
       path: /uaa/**
       stripPrefix: false
-    writeonly-service:
-      sensitiveHeaders:
-      path: /writeonly/**
-      url: http://localhost:8081
     public-service:
       sensitiveHeaders:
       path: /public/**
       url: http://localhost:8081
-    readonly-service:
+    protected-service:
       sensitiveHeaders:
-      path: /readonly/**
+      path: /protected/**
       url: http://localhost:8081
   add-proxy-headers: true
   
