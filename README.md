@@ -63,6 +63,7 @@ password=password
 1. APIGATEWAY Server = 8080
 2. OAUTH Server = 9999
 3. Play REST Service = 9000
+4. Redis database = 6379
 
 ## References
 
