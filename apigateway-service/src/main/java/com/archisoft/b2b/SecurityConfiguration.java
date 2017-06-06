@@ -34,6 +34,7 @@ public class SecurityConfiguration {
 			// .anyRequest().permitAll();
 			
 <<<<<<< HEAD
+<<<<<<< HEAD
 			 @Override
 			 public void configure(final HttpSecurity http) throws Exception {
 			        // @formatter:off
@@ -53,7 +54,17 @@ public class SecurityConfiguration {
 			 }
 			
 =======
+=======
 
+			http.authorizeRequests().antMatchers(HttpMethod.GET, "/protected").hasRole("READER")	
+			.antMatchers(HttpMethod.POST, "/protected").hasRole("WRITER")
+			.anyRequest()
+					.permitAll();
+
+		}
+>>>>>>> branch 'master' of https://github.com/archisoftconsulting/apigateway-service-spring
+
+<<<<<<< HEAD
 			http.authorizeRequests().antMatchers(HttpMethod.GET, "/protected").hasRole("READER")	
 			.antMatchers(HttpMethod.POST, "/protected").hasRole("WRITER")
 			.anyRequest()
@@ -62,6 +73,8 @@ public class SecurityConfiguration {
 >>>>>>> branch 'master' of https://github.com/archisoftconsulting/apigateway-service-spring
 		}
 
+=======
+>>>>>>> branch 'master' of https://github.com/archisoftconsulting/apigateway-service-spring
 	}
 
 //	@Configuration
