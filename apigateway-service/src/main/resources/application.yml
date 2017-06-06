@@ -12,18 +12,18 @@ zuul:
       sensitiveHeaders:
       path: /uaa/**
       stripPrefix: false
-    writeonly-service:
-      sensitiveHeaders:
-      path: /writeonly/**
-      url: http://localhost:8081
     public-service:
       sensitiveHeaders:
       path: /public/**
       url: http://localhost:8081
-    readonly-service:
+    protected-service:
       sensitiveHeaders:
-      path: /readonly/**
+      path: /protected/**
       url: http://localhost:8081
+    private-service:
+      sensitiveHeaders:
+      path: /private/**
+      url: http://gturnquist-quoters.cfapps.io/api/random
   add-proxy-headers: true
   
 security:
