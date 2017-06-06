@@ -20,31 +20,40 @@ mvn spring-boot:run
 
 cd greeting-service
 mvn spring-boot:run
+
+sudo docker-compose up -d
+(install and up redis database)
 ```
 
 Once the application is up, go to 
 
 
 1. http://localhost:8080 to see the apigateway home page
-2. http://localhost:8081 to see the greeting service.
-3. http://localhost:8080/public to test the routing
-4. http://localhost:8080/readonly. Protected resource, login with user=reader can access. user=writer cannot access.
-5. http://localhost:8080/writeonly to Protected resource, login with user=writer.
+2. http://localhost:8081 to see the play rest service.
+3. http://localhost:8080/public to test the routing to rest service
+4. http://localhost:8080/protected. to test the protected rest service. 
+
+a. User with role=writer can POST but cannot GET
+
+b. User with role=reader can GET but cannot POST
+
+c. User with role=writer,reader can POST and GET
+
+## User role and permission control
+
+Login id=reader (only can GET but cannot POST)
+
+Login id=writer (only can POST but cannot GET)
+
+Login id=admin  (can POST and GET)
+
+password=password
 
 ## Server PORTs
+
 1. APIGATEWAY Server = 8080
 2. OAUTH Server = 9999
-3. Sample Resource/Rest API = 8081
-
-## Login@pass,role
-
-
-reader@password,reader
-
-writer@password,writer
-
-admin@password,reader,writer
-
+3. REST API = 8081
 
 ## References
 
@@ -64,5 +73,5 @@ curl b2b:b2bsecret@localhost:9999/uaa/oauth/token  \
 
 try to access the page/service with token
 
-curl -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTY2NzYxODIsInVzZXJfbmFtZSI6InVzZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiLCJST0xFX0FDVFVBVE9SIl0sImp0aSI6IjMxZWU3YmNkLWE3N2MtNGU2OS05ZWNjLTBlMmJhYzEwOWJlZCIsImNsaWVudF9pZCI6ImIyYiIsInNjb3BlIjpbInJlYWQiXX0.btAm_ZhWR5hdMALqR1XRGkyKMaHC89ZENzmYJ5nHFofAn8WsZI9jqrucA9E34-NgcR0mHfGH4fgkh9q5MFojyju1_2GkfCh9w4Ee5WaW_hKNgahP9m5-luUTvdsILAkhF-jaWgpKaTub9UC_oBoiQ9XpFKikqoTwV3D3ls9Xp7OWvm2gJBo2x10Np-_jhVy_cOsxV75hoMK6MEvHeEM8MJX5qWe6hBfvSNnYwtbIA9FVpJQeLjh-IcuwGIgVl0LSIagsIQkt_1FDzLbGnY-ESDirVjHgQhfp4UmCcpXz18gJEj7TfD53C-WzQAR2LX-gQHie8u0yLtwMJoH7gEeP3Q" localhost:8080/protected
+curl -H "Authorization: Bearer [jwttokenstringxxxxx]" localhost:8080/protected
 
