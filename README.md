@@ -29,7 +29,7 @@ Once the application is up, go to
 
 
 1. http://localhost:8080 to see the apigateway home page
-2. http://localhost:8081 to see the play rest service.
+2. http://localhost:9000 to see the play rest service.
 3. http://localhost:8080/public to test the routing to rest service
 4. http://localhost:8080/protected. to test the protected rest service. 
 
