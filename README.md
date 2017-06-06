@@ -34,7 +34,9 @@ Once the application is up, go to
 4. http://localhost:8080/protected. to test the protected rest service. 
 
 a. User with role=writer can POST but cannot GET
+
 b. User with role=reader can GET but cannot POST
+
 c. User with role=writer,reader can POST and GET
 
 ## User role and permission control
