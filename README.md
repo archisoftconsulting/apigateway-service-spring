@@ -29,24 +29,30 @@ Once the application is up, go to
 
 
 1. http://localhost:8080 to see the apigateway home page
-2. http://localhost:8081 to see the greeting service.
-3. http://localhost:8080/public to test the routing
-4. http://localhost:8080/readonly. Protected resource, login with user=reader can access. user=writer cannot access.
-5. http://localhost:8080/writeonly to Protected resource, login with user=writer.
+2. http://localhost:8081 to see the play rest service.
+3. http://localhost:8080/public to test the routing to rest service
+4. http://localhost:8080/protected. to test the protected rest service. 
+
+a. User with role=writer can POST but cannot GET
+b. User with role=reader can GET but cannot POST
+c. User with role=writer,reader can POST and GET
+
+## User role and permission control
+
+Login id=reader (only can GET but cannot POST)
+
+Login id=writer (only can POST but cannot GET)
+
+Login id=admin  (can POST and GET)
+
+password=password
 
 ## Server PORTs
 1. APIGATEWAY Server = 8080
 2. OAUTH Server = 9999
 3. Sample Resource/Rest API = 8081
 
-## Login@pass,role
 
-
-reader@password,reader
-
-writer@password,writer
-
-admin@password,reader,writer
 
 
 ## References
