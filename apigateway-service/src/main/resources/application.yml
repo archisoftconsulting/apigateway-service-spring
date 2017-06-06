@@ -44,7 +44,7 @@ ratelimit:
     enabled: true #default false
     behind-proxy: true #default false
     policies:
-      protected-service:
+      public-service:
         limit: 5
         refresh-interval: 120 #60 default value (in seconds)
         type: #optional
