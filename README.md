@@ -3,6 +3,14 @@
 This is a starter application for apigateway. The purpose of the API gateway is to handle external traffic.
 Services should communicate directly without a gateway/ESB-style mediator.
 
+Functionalities in this apigateway:
+
+1. Routing
+2. Rate Limiting
+3. Authentication
+4. Authorization
+5. Role Based Access Control(RBAC)
+
 ## Download the project
 gitclone this project or download the zip file https://github.com/archisoftconsulting/apigateway-service-spring/archive/master.zip
 Extract into any folder
