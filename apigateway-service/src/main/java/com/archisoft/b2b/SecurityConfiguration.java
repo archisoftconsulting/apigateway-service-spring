@@ -79,7 +79,7 @@ public class SecurityConfiguration {
 			// .antMatchers(HttpMethod.POST,"/writeonly/**").access("#oauth2.hasScope('b2b')
 			// and hasRole('WRITE')")
 			// .anyRequest().permitAll();
-			//TESTING222222333
+			//TESTING2222223332
 			
 
 			http.authorizeRequests().antMatchers(HttpMethod.GET, "/protected").hasRole("READER")	
