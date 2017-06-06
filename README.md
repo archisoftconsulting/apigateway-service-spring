@@ -20,6 +20,9 @@ mvn spring-boot:run
 
 cd greeting-service
 mvn spring-boot:run
+
+sudo docker-compose up -d
+(install and up redis database)
 ```
 
 Once the application is up, go to 
