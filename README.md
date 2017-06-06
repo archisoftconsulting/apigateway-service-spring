@@ -18,8 +18,8 @@ mvn spring-boot:run
 cd oauth2-service
 mvn spring-boot:run
 
-cd greeting-service
-mvn spring-boot:run
+cd play-service
+./sbt run
 
 sudo docker-compose up -d
 (install and up redis database)
