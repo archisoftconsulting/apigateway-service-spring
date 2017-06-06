@@ -20,10 +20,6 @@ zuul:
       sensitiveHeaders:
       path: /protected/**
       url: http://localhost:8081
-    private-service:
-      sensitiveHeaders:
-      path: /private/**
-      url: http://gturnquist-quoters.cfapps.io/api/random
   add-proxy-headers: true
   
 security:
