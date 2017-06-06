@@ -69,6 +69,7 @@ In browser:
 (It generate code=xxx,http://localhost:8080/protected?code=4qpeXa)
 
 3. In command line, enter the below with the new code generated
+
 curl b2b:b2bsecret@localhost:9999/uaa/oauth/token  \
 -d grant_type=authorization_code -d client_id=b2b     \
 -d redirect_uri=http://localhost:8080/protected -d code=4qpeXa
@@ -76,4 +77,5 @@ curl b2b:b2bsecret@localhost:9999/uaa/oauth/token  \
 (Access token generated)
 
 4. In command line, enter the below with the accesstoken generated
+
 curl -H "Authorization: Bearer [AccessToken]" localhost:8080/protected
