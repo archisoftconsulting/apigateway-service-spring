@@ -60,8 +60,8 @@ password=password
 
 ## Service ports
 
-1. APIGATEWAY Server = 8080
-2. OAUTH Server = 9999
+1. APIGATEWAY Service = 8080
+2. OAUTH Service = 9999
 3. Play REST Service = 9000
 4. Redis database = 6379
 
