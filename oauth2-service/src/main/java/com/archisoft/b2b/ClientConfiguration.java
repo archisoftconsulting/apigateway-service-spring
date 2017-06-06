@@ -44,12 +44,16 @@ public class ClientConfiguration{
 	               .withClient("b2b")
 	               .secret("b2bsecret")
 	               .authorizedGrantTypes("authorization_code", "refresh_token","password")
-	               .scopes("b2b");
+	               .scopes("b2b")
+	               .autoApprove(true)
+	               .accessTokenValiditySeconds(60)
+	        	   .refreshTokenValiditySeconds(3600);
 	    }
 
 	    @Override
 	    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 	        endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtAccessTokenConverter());
+	      
 	    }
 
 	    @Override
@@ -70,7 +74,7 @@ public class ClientConfiguration{
 					.withUser("admin").password("password").roles("READER", "WRITER")
 				.and()
 					.withUser("writer").password("password").roles("WRITER");
-	}
+				}
 	}
 	}
 	
