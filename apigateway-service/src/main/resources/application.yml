@@ -15,11 +15,11 @@ zuul:
     public-service:
       sensitiveHeaders:
       path: /public/**
-      url: http://localhost:8081
+      url: http://localhost:9000
     protected-service:
       sensitiveHeaders:
       path: /protected/**
-      url: http://localhost:8081
+      url: http://localhost:9000
   add-proxy-headers: true
   
 security:
