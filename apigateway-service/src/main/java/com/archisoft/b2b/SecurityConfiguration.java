@@ -31,9 +31,11 @@ public class SecurityConfiguration {
 //			  	.antMatchers(HttpMethod.POST,"/writeonly/**").access("#oauth2.hasScope('b2b') and hasRole('WRITE')")
 //			    .anyRequest().permitAll();
 			  
-			  http.authorizeRequests().antMatchers(HttpMethod.POST, "/readonly").hasRole("READER")
-			  .anyRequest().authenticated();
-			
+			  http.authorizeRequests()
+			  	.antMatchers(HttpMethod.POST, "/protected").hasRole("WRITER")
+			  	.antMatchers(HttpMethod.GET, "/protected").hasRole("READER")
+			  	//.anyRequest().authenticated();
+			  	.anyRequest().permitAll();
 			  
 			  
 			 }
