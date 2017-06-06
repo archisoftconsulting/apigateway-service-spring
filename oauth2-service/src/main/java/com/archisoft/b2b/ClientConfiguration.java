@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,7 +18,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
 public class ClientConfiguration{
@@ -46,14 +50,39 @@ public class ClientConfiguration{
 	               .authorizedGrantTypes("authorization_code", "refresh_token","password")
 	               .scopes("b2b")
 	               .autoApprove(true)
+<<<<<<< HEAD
 	               .accessTokenValiditySeconds(60)
 	        	   .refreshTokenValiditySeconds(3600);
+=======
+					.accessTokenValiditySeconds(300) // 1 hour
+					.refreshTokenValiditySeconds(300); // 30 days;
+	        
+	        
+>>>>>>> refs/remotes/origin/master
 	    }
 
 	    @Override
 	    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+<<<<<<< HEAD
 	        endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtAccessTokenConverter());
 	      
+=======
+	        endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtAccessTokenConverter()).tokenStore(tokenStore());
+	    }
+	    
+	    @Bean
+	    public TokenStore tokenStore() {
+	        return new JwtTokenStore(jwtAccessTokenConverter());
+	    }
+	
+	    @Bean
+	    @Primary
+	    public DefaultTokenServices tokenServices() {
+	        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
+	        defaultTokenServices.setTokenStore(tokenStore());
+	        defaultTokenServices.setSupportRefreshToken(true);
+	        return defaultTokenServices;
+>>>>>>> refs/remotes/origin/master
 	    }
 
 	    @Override
