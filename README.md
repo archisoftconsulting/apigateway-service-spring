@@ -33,19 +33,20 @@ Once the application is up, go to
 3. http://localhost:8080/public to test the routing to rest service
 4. http://localhost:8080/protected. to test the protected rest service. 
 
+## User role and permission control
+
 a. User with role=writer can POST but cannot GET
+
+Login id=writer
 
 b. User with role=reader can GET but cannot POST
 
+Login id=reader
+
 c. User with role=writer,reader can POST and GET
 
-## User role and permission control
+Login id=admin
 
-Login id=reader (only can GET but cannot POST)
-
-Login id=writer (only can POST but cannot GET)
-
-Login id=admin  (can POST and GET)
 
 password=password
 
