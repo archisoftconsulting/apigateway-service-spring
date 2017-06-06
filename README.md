@@ -48,12 +48,10 @@ Login id=admin  (can POST and GET)
 password=password
 
 ## Server PORTs
+
 1. APIGATEWAY Server = 8080
 2. OAUTH Server = 9999
-3. Sample Resource/Rest API = 8081
-
-
-
+3. REST API = 8081
 
 ## References
 
