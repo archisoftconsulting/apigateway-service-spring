@@ -50,23 +50,14 @@ public class ClientConfiguration{
 	               .authorizedGrantTypes("authorization_code", "refresh_token","password")
 	               .scopes("b2b")
 	               .autoApprove(true)
-<<<<<<< HEAD
-	               .accessTokenValiditySeconds(60)
-	        	   .refreshTokenValiditySeconds(3600);
-=======
 					.accessTokenValiditySeconds(300) // 1 hour
 					.refreshTokenValiditySeconds(300); // 30 days;
 	        
 	        
->>>>>>> refs/remotes/origin/master
 	    }
 
 	    @Override
 	    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-<<<<<<< HEAD
-	        endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtAccessTokenConverter());
-	      
-=======
 	        endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtAccessTokenConverter()).tokenStore(tokenStore());
 	    }
 	    
@@ -82,7 +73,6 @@ public class ClientConfiguration{
 	        defaultTokenServices.setTokenStore(tokenStore());
 	        defaultTokenServices.setSupportRefreshToken(true);
 	        return defaultTokenServices;
->>>>>>> refs/remotes/origin/master
 	    }
 
 	    @Override
@@ -103,10 +93,8 @@ public class ClientConfiguration{
 					.withUser("admin").password("password").roles("READER", "WRITER")
 				.and()
 					.withUser("writer").password("password").roles("WRITER");
-				}
+	}
 	}
 	}
 	
 }
-
-
