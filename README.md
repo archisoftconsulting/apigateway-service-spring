@@ -85,7 +85,7 @@ curl b2b:b2bsecret@localhost:9999/uaa/oauth/token  \
 ```
 (Access token generated)
 
-4. In command line, enter the below with the accesstoken generated
+3. In command line, enter the below with the accesstoken generated
 ```
 curl -H "Authorization: Bearer [AccessToken]" localhost:8080/protected
 ```
