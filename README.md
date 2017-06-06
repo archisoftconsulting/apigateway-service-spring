@@ -53,7 +53,7 @@ password=password
 
 1. APIGATEWAY Server = 8080
 2. OAUTH Server = 9999
-3. REST API = 8081
+3. Play REST Service = 9000
 
 ## References
 
