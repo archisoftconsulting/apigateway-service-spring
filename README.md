@@ -58,7 +58,7 @@ Login id=admin
 
 password=password
 
-## Server PORTs
+## Service ports
 
 1. APIGATEWAY Server = 8080
 2. OAUTH Server = 9999
