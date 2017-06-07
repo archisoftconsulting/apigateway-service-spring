@@ -92,5 +92,7 @@ curl -H "Authorization: Bearer [AccessToken]" localhost:8080/protected
 ```
 
 Author:
+
 khimsuan.tan@archisoftconsulting.com
+
 cheeken.wong@archisoftconsulting.com
