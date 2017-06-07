@@ -1,14 +1,12 @@
 package com.archisoft.b2b;
 
-import java.io.IOException;
+import java.security.KeyPair;
 
-import org.apache.commons.io.IOUtils;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -18,6 +16,7 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
 public class SecurityConfiguration {
 
@@ -38,16 +37,22 @@ public class SecurityConfiguration {
 
 	    @Bean
 	    public JwtAccessTokenConverter accessTokenConverter() {
-	        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-	        Resource resource = new ClassPathResource("public.txt");
-	        String publicKey = null;
-	        try {
-	            publicKey = IOUtils.toString(resource.getInputStream());
-	        } catch (final IOException e) {
-	            throw new RuntimeException(e);
-	        }
-	        converter.setVerifierKey(publicKey);
-	        return converter;
+//	        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+//	        Resource resource = new ClassPathResource("public.txt");
+//	        String publicKey = null;
+//	        try {
+//	            publicKey = IOUtils.toString(resource.getInputStream());
+//	        } catch (final IOException e) {
+//	            throw new RuntimeException(e);
+//	        }
+//	        converter.setVerifierKey(publicKey);
+//	        return converter;
+	    	JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+			KeyPair keyPair = new KeyStoreKeyFactory(
+					new ClassPathResource("keystore.jks"), "foobar".toCharArray())
+					.getKeyPair("test");
+			converter.setKeyPair(keyPair);
+return converter;
 	    }
 	 
 	 
