@@ -90,3 +90,7 @@ curl b2b:b2bsecret@localhost:9999/uaa/oauth/token  \
 ```
 curl -H "Authorization: Bearer [AccessToken]" localhost:8080/protected
 ```
+
+Author:
+khimsuan.tan@archisoftconsulting.com
+cheeken.wong@archisoftconsulting.com
