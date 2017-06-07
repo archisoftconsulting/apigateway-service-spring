@@ -37,7 +37,7 @@ Once the application is up, go to
 
 
 1. http://localhost:8080 to see the apigateway home page
-2. http://localhost:9000 to see the play rest service.
+2. http://localhost:9000 to see the playframework java rest service.
 3. http://localhost:8080/public to test the routing to rest service. Refresh more than 5 times to test rate limit.
 4. http://localhost:8080/protected. to test the protected rest service. 
 
