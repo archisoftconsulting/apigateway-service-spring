@@ -35,15 +35,6 @@ public class SecurityConfiguration {
 	        return new JwtTokenStore(accessTokenConverter());
 	    }
 
-//	    @Bean
-//	    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-//	        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-//	        KeyPair keyPair = new KeyStoreKeyFactory(new ClassPathResource("keystore.jks"), "foobar".toCharArray())
-//	                .getKeyPair("test");
-//	        converter.setKeyPair(keyPair);
-//	        return converter;
-//	    }
-	    
 	    @Bean
 	    public JwtAccessTokenConverter accessTokenConverter() {
 	        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
@@ -66,42 +57,18 @@ public class SecurityConfiguration {
 	        defaultTokenServices.setTokenStore(tokenStore());
 	        return defaultTokenServices;
 	    }
-		// @Autowired
-		// private AuthenticationManager authenticationManager;
 
 		@Override
 		public void configure(final HttpSecurity http) throws Exception {
-			// @formatter:off
-			// http.authorizeRequests()
-			// .antMatchers(HttpMethod.GET,"/readonly/**").access("#oauth2.hasScope('b2b')
-			// and hasRole('READ')")
-			//
-			// .antMatchers(HttpMethod.POST,"/writeonly/**").access("#oauth2.hasScope('b2b')
-			// and hasRole('WRITE')")
-			// .anyRequest().permitAll();
-			//TESTING2222223332
-			
 
-			http.authorizeRequests().antMatchers(HttpMethod.GET, "/protected").hasRole("READER")	
-			.antMatchers(HttpMethod.POST, "/protected").hasRole("WRITER")
-			.anyRequest()
-					.permitAll();
+			http
+			.authorizeRequests().antMatchers(HttpMethod.GET, "/protected").hasRole("READER")	
+								.antMatchers(HttpMethod.POST, "/protected").hasRole("WRITER")
+								.anyRequest()
+								.permitAll();
 
 		}
 
 	}
 
-//	@Configuration
-//	@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-//	protected static class UserConfiguration extends WebSecurityConfigurerAdapter {
-//
-//		@Autowired
-//		public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-//			// @formatter:off
-//			auth.inMemoryAuthentication().withUser("reader").password("password").roles("READER").and()
-//					.withUser("admin").password("password").roles("READER", "WRITER").and().withUser("writer")
-//					.password("password").roles("WRITER");
-//		}
-//		// CSRF code TODO:
-//	}
 }
