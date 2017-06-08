@@ -12,7 +12,7 @@ Functionalities in this apigateway:
 5. Role Based Access Control(RBAC)
 
 ## Download the project
-gitclone this project or download the zip file https://github.com/archisoftconsulting/apigateway-service-spring/archive/master.zip
+git clone this project or download the zip file https://github.com/archisoftconsulting/apigateway-service-spring/archive/master.zip
 Extract into any folder
 Open Terminal command
 
