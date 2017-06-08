@@ -54,6 +54,10 @@ password=password
 
 ## Service ports
 
+```
+sudo docker ps
+```
+
 1. APIGATEWAY Service = 8080
 2. OAUTH Service = 9999
 3. Play REST Service = 9000
