@@ -87,6 +87,6 @@ curl -H "Authorization: Bearer [AccessToken]" localhost:8080/protected
 Refer :  
 https://github.com/archisoftconsulting/vagrantbox-starter
 
-Author:  
+Email:  
 khimsuan.tan@archisoftconsulting.com  
 cheeken.wong@archisoftconsulting.com
