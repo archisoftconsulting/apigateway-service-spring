@@ -22,6 +22,7 @@ Open Terminal command
 ```
 
 ./build.sh
+
 sudo docker-compose up -d
 
 ```
