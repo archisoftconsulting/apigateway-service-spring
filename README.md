@@ -20,17 +20,10 @@ Open Terminal command
 ## Running
 
 ```
-cd apigateway-service
-mvn spring-boot:run
 
-cd oauth2-service
-mvn spring-boot:run
-
-cd play-service
-./sbt run
-
+./build.sh
 sudo docker-compose up -d
-(install and up redis database)
+
 ```
 
 Once the application is up, go to 
