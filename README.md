@@ -35,7 +35,13 @@ Once the application is up, go to
 3. http://localhost:8080/public to test the routing to rest service. Refresh more than 5 times to test rate limit.
 4. http://localhost:8080/protected. to test the protected rest service. 
 
-## User role and permission control
+## User, role and Permission control
+
+| Login id      | Role          | Permission Control  | HTTP Method |
+| ------------- | ------------- |---------------------|-------------|
+| reader        | reader        | read-only           | HTTP-GET    |
+| writer        | writer        | write-only          | HTTP-POST   |
+| admin         | admin         | read and write      | HTTP-GET and HTTP-POST|
 
 a. User with role=writer can POST but cannot GET
 
