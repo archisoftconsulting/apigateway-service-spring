@@ -82,6 +82,11 @@ curl b2b:b2bsecret@localhost:9999/uaa/oauth/token  \
 curl -H "Authorization: Bearer [AccessToken]" localhost:8080/protected
 ```
 
-Author:
+## Setup docker/docker compose
 
-khimsuan.tan@archisoftconsulting.com,cheeken.wong@archisoftconsulting.com
+Refer :  
+https://github.com/archisoftconsulting/vagrantbox-starter
+
+Author:  
+khimsuan.tan@archisoftconsulting.com  
+cheeken.wong@archisoftconsulting.com
