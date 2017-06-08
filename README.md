@@ -43,19 +43,6 @@ Once the application is up, go to
 | writer        | writer        | write-only          | HTTP-POST   |
 | admin         | admin         | read and write      | HTTP-GET and HTTP-POST|
 
-a. User with role=writer can POST but cannot GET
-
-Login id=writer
-
-b. User with role=reader can GET but cannot POST
-
-Login id=reader
-
-c. User with role=writer,reader can POST and GET
-
-Login id=admin
-
-
 password=password
 
 ## Service ports
