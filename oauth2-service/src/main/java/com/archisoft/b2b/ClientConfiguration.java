@@ -46,14 +46,26 @@ public class ClientConfiguration{
 	    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 	        clients.inMemory()
 	               .withClient("b2b")
-	               .secret("b2bsecret")
-	               .authorizedGrantTypes("authorization_code", "refresh_token","password")
-	               .scopes("b2b")
-	               .autoApprove(true)
-					.accessTokenValiditySeconds(300) // 1 hour
-					.refreshTokenValiditySeconds(300); // 30 days;
-	        
-	        
+		               .secret("b2bsecret")
+		               .scopes("b2b")
+		               .accessTokenValiditySeconds(120) 
+		               .authorizedGrantTypes("authorization_code", "refresh_token","password")
+		               .autoApprove(true)
+	        		.and()
+	        		.withClient("implicit")
+		               .secret("implicitsecret")
+		               .scopes("implicit")
+		               .accessTokenValiditySeconds(120)
+		               .authorizedGrantTypes("implicit")
+		               .autoApprove(true)
+	        		.and()
+	        		.withClient("password")
+		               .secret("passwordsecret")
+		               .scopes("password")
+		               .accessTokenValiditySeconds(120)
+		               .authorizedGrantTypes("password")
+		               .autoApprove(true);
+	        	   
 	    }
 
 	    @Override

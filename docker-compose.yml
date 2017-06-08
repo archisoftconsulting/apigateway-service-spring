@@ -2,3 +2,21 @@ redis:
   image: redis
   ports:
     - "6379:6379"
+
+apigateway-service:
+  image: b2b/apigateway-service:latest
+  ports:
+    - "8080:8080"
+  links:
+    - redis
+
+oauth2-service:
+  image: b2b/oauth2-service:latest
+  ports:
+    - "9999:9999"
+
+play-service:
+  image: play-java:1.0-SNAPSHOT
+  ports:
+    - "9000:9000"
+
