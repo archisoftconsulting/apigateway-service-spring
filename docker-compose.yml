@@ -16,7 +16,7 @@ oauth2-service:
     - "9999:9999"
 
 play-service:
-  image: play-java:1.0-SNAPSHOT
+  image: b2b-play-service:latest
   ports:
     - "9000:9000"
 
