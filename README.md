@@ -20,11 +20,17 @@ Open Terminal command
 ## Running
 
 ```
-
 ./build.sh
 
 sudo docker-compose up -d
-
+```
+## Check status
+```
+sudo docker ps
+```
+## Shutdown
+```
+sudo docker-compose down
 ```
 
 Once the application is up, go to 
